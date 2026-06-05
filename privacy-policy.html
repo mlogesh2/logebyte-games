@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy – Pixel Dash: Endless Runner | LogeByte Games</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Orbitron:wght@400;700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --neon-green:  #39ff14;
+      --neon-blue:   #00d4ff;
+      --neon-pink:   #ff2d78;
+      --neon-yellow: #ffe600;
+      --dark-bg:     #0a0a12;
+      --card-bg:     #10101e;
+      --card-border: rgba(255,255,255,0.07);
+      --text-primary: #f0f0ff;
+      --text-muted:   #8888aa;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--dark-bg);
+      color: var(--text-primary);
+      overflow-x: hidden;
+      line-height: 1.75;
+    }
+
+    /* ── Stars background ─────────────────────────────────────────── */
+    .stars-bg {
+      position: fixed; inset: 0; z-index: 0;
+      background:
+        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(0,212,255,0.10) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 30% at 90% 110%, rgba(57,255,20,0.06) 0%, transparent 70%),
+        var(--dark-bg);
+    }
+    .stars-bg::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        radial-gradient(1px 1px at 12% 18%, #fff 0%, transparent 100%),
+        radial-gradient(1px 1px at 35% 65%, #fff 0%, transparent 100%),
+        radial-gradient(1px 1px at 58% 12%, #fff 0%, transparent 100%),
+        radial-gradient(1px 1px at 78% 80%, #fff 0%, transparent 100%),
+        radial-gradient(1px 1px at 90% 35%, #fff 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 22% 90%, rgba(0,212,255,0.7) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 68% 55%, rgba(57,255,20,0.6) 0%, transparent 100%);
+      opacity: 0.5;
+    }
+
+    .page { position: relative; z-index: 1; }
+
+    /* ── Nav ──────────────────────────────────────────────────────── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 2.5rem;
+      background: rgba(10,10,18,0.88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--card-border);
+    }
+    .nav-logo {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.85rem;
+      color: var(--neon-green);
+      text-shadow: 0 0 10px var(--neon-green);
+      text-decoration: none;
+    }
+    .nav-back {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--neon-blue); }
+
+    /* ── Hero banner ──────────────────────────────────────────────── */
+    .policy-hero {
+      padding: 5rem 1.5rem 4rem;
+      text-align: center;
+      border-bottom: 1px solid var(--card-border);
+    }
+    .game-chip {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.5rem;
+      letter-spacing: 2px;
+      color: var(--neon-blue);
+      border: 1px solid var(--neon-blue);
+      padding: 0.45rem 1rem;
+      border-radius: 4px;
+      margin-bottom: 1.75rem;
+      box-shadow: 0 0 12px rgba(0,212,255,0.2);
+    }
+    .policy-hero h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 900;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      background: linear-gradient(135deg, #fff 0%, var(--neon-blue) 60%, var(--neon-green) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1rem;
+      filter: drop-shadow(0 0 20px rgba(0,212,255,0.3));
+    }
+    .policy-hero p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+    .effective-date {
+      display: inline-block;
+      margin-top: 1.25rem;
+      font-size: 0.8rem;
+      padding: 0.3rem 0.9rem;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--card-border);
+      border-radius: 100px;
+      color: var(--text-muted);
+    }
+
+    /* ── Layout ───────────────────────────────────────────────────── */
+    .policy-layout {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 3rem;
+      padding: 4rem 1.5rem 6rem;
+      align-items: start;
+    }
+
+    /* ── Table of contents (sidebar) ──────────────────────────────── */
+    .toc {
+      position: sticky;
+      top: 80px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 1.25rem;
+    }
+    .toc-title {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.5rem;
+      letter-spacing: 2px;
+      color: var(--neon-green);
+      margin-bottom: 1rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--card-border);
+    }
+    .toc ol {
+      list-style: none;
+      counter-reset: toc;
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+    .toc ol li { counter-increment: toc; }
+    .toc ol li a {
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 0.35rem 0.5rem;
+      border-radius: 6px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .toc ol li a::before {
+      content: counter(toc, decimal-leading-zero);
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.45rem;
+      color: var(--neon-blue);
+      flex-shrink: 0;
+    }
+    .toc ol li a:hover {
+      background: rgba(0,212,255,0.06);
+      color: var(--neon-blue);
+    }
+
+    /* ── Content ──────────────────────────────────────────────────── */
+    .policy-content { display: flex; flex-direction: column; gap: 2.5rem; }
+
+    .policy-section {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 2rem 2.25rem;
+      scroll-margin-top: 100px;
+    }
+    .section-num {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.48rem;
+      letter-spacing: 2px;
+      color: var(--neon-blue);
+      margin-bottom: 0.5rem;
+    }
+    .policy-section h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--card-border);
+    }
+    .policy-section p {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      margin-bottom: 0.85rem;
+    }
+    .policy-section p:last-child { margin-bottom: 0; }
+
+    /* Data table */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      font-size: 0.875rem;
+    }
+    .data-table th {
+      background: rgba(0,212,255,0.07);
+      color: var(--neon-blue);
+      font-weight: 600;
+      padding: 0.65rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid var(--card-border);
+      font-size: 0.8rem;
+    }
+    .data-table td {
+      padding: 0.6rem 1rem;
+      color: var(--text-muted);
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      vertical-align: top;
+    }
+    .data-table tr:last-child td { border-bottom: none; }
+    .data-table tr:hover td { background: rgba(255,255,255,0.02); }
+
+    /* Bullet lists */
+    .policy-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+      margin: 0.75rem 0;
+    }
+    .policy-list li {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+    .policy-list li::before {
+      content: '▸';
+      color: var(--neon-green);
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* Info / warning callouts */
+    .callout {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      background: rgba(57,255,20,0.05);
+      border: 1px solid rgba(57,255,20,0.2);
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+      margin: 1rem 0;
+    }
+    .callout.blue {
+      background: rgba(0,212,255,0.05);
+      border-color: rgba(0,212,255,0.2);
+    }
+    .callout.yellow {
+      background: rgba(255,230,0,0.05);
+      border-color: rgba(255,230,0,0.2);
+    }
+    .callout-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 1px; }
+    .callout p { margin-bottom: 0; font-size: 0.88rem; }
+
+    /* Third-party links */
+    .third-party-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 0.75rem;
+      margin: 1rem 0;
+    }
+    .third-party-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      padding: 0.85rem 1rem;
+    }
+    .third-party-card h4 {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.3rem;
+    }
+    .third-party-card p { font-size: 0.78rem; margin-bottom: 0.4rem; }
+    .third-party-card a {
+      font-size: 0.75rem;
+      color: var(--neon-blue);
+      text-decoration: none;
+    }
+    .third-party-card a:hover { text-decoration: underline; }
+
+    /* Contact box */
+    .contact-box {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      margin-top: 1rem;
+    }
+    .contact-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.9rem;
+    }
+    .contact-row span:first-child {
+      color: var(--text-muted);
+      min-width: 80px;
+    }
+    .contact-row a { color: var(--neon-green); text-decoration: none; }
+    .contact-row a:hover { text-decoration: underline; }
+
+    /* ── Footer ───────────────────────────────────────────────────── */
+    footer {
+      background: rgba(0,0,0,0.4);
+      border-top: 1px solid var(--card-border);
+      padding: 2.5rem 2.5rem;
+      text-align: center;
+    }
+    .footer-inner-pp {
+      max-width: 1080px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1.5rem;
+    }
+    .footer-links-pp { display: flex; gap: 1.5rem; list-style: none; flex-wrap: wrap; }
+    .footer-links-pp a { color: var(--text-muted); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
+    .footer-links-pp a:hover { color: var(--neon-green); }
+    .footer-copy { font-size: 0.8rem; color: var(--text-muted); }
+
+    /* ── Responsive ───────────────────────────────────────────────── */
+    @media (max-width: 768px) {
+      .policy-layout { grid-template-columns: 1fr; }
+      .toc { position: static; }
+      nav { padding: 1rem 1.25rem; }
+      .policy-section { padding: 1.5rem 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="stars-bg" aria-hidden="true"></div>
+
+  <div class="page">
+    <!-- Nav -->
+    <nav>
+      <a href="index.html" class="nav-logo">LB<span style="color:#fff">.</span></a>
+      <a href="index.html" class="nav-back">← Back to LogeByte Games</a>
+    </nav>
+
+    <!-- Hero -->
+    <div class="policy-hero">
+      <div class="game-chip">⚡ Pixel Dash: Endless Runner</div>
+      <h1>Privacy Policy</h1>
+      <p>
+        We care about your privacy. This policy explains what data our game
+        collects, how it's used, and your rights as a player.
+      </p>
+      <span class="effective-date">📅 Effective Date: June 6, 2026 &nbsp;·&nbsp; Last Updated: June 6, 2026</span>
+    </div>
+
+    <!-- Main layout -->
+    <div class="policy-layout">
+
+      <!-- Sidebar TOC -->
+      <aside class="toc" aria-label="Table of Contents">
+        <p class="toc-title">Contents</p>
+        <ol>
+          <li><a href="#s1">Information We Collect</a></li>
+          <li><a href="#s2">How We Use Your Data</a></li>
+          <li><a href="#s3">Third-Party Services</a></li>
+          <li><a href="#s4">Advertising</a></li>
+          <li><a href="#s5">Data Sharing</a></li>
+          <li><a href="#s6">Data Retention</a></li>
+          <li><a href="#s7">Children's Privacy</a></li>
+          <li><a href="#s8">Your Rights</a></li>
+          <li><a href="#s9">Data Security</a></li>
+          <li><a href="#s10">Changes to Policy</a></li>
+          <li><a href="#s11">Contact Us</a></li>
+        </ol>
+      </aside>
+
+      <!-- Policy content -->
+      <main class="policy-content">
+
+        <!-- Intro callout -->
+        <div class="callout blue">
+          <span class="callout-icon">ℹ️</span>
+          <p>
+            This Privacy Policy applies to the mobile game <strong style="color:#fff">Pixel Dash: Endless Runner</strong>
+            (the "Game") developed and published by <strong style="color:#fff">LogeByte Games</strong>
+            ("we", "us", or "our"). By downloading or playing the Game, you agree to this policy.
+            If you do not agree, please uninstall the Game.
+          </p>
+        </div>
+
+        <!-- 1. Information We Collect -->
+        <section class="policy-section" id="s1">
+          <p class="section-num">Section 01</p>
+          <h2>Information We Collect</h2>
+          <p>
+            Pixel Dash: Endless Runner is designed to be lightweight on data. We collect only the
+            minimum information needed to provide a stable, enjoyable experience.
+          </p>
+
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Data Type</th>
+                <th>What It Includes</th>
+                <th>Collected?</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Device Information</td>
+                <td>Device model, OS version, screen resolution, language</td>
+                <td style="color:var(--neon-yellow)">Automatically (via crash tools)</td>
+              </tr>
+              <tr>
+                <td>Gameplay Data</td>
+                <td>Scores, level progress, session duration, in-game events</td>
+                <td style="color:var(--neon-yellow)">Automatically (anonymised)</td>
+              </tr>
+              <tr>
+                <td>Crash & Diagnostic Logs</td>
+                <td>Stack traces, error codes, app version at time of crash</td>
+                <td style="color:var(--neon-yellow)">Automatically (if crash occurs)</td>
+              </tr>
+              <tr>
+                <td>Advertising ID (GAID)</td>
+                <td>Google Advertising ID for ad personalisation</td>
+                <td style="color:var(--neon-yellow)">Automatically (if ads enabled)</td>
+              </tr>
+              <tr>
+                <td>Personal Identity</td>
+                <td>Name, email, phone number, address</td>
+                <td style="color:var(--neon-green)">❌ Not collected</td>
+              </tr>
+              <tr>
+                <td>Location Data</td>
+                <td>GPS, precise location, IP-derived country</td>
+                <td style="color:var(--neon-green)">❌ Not collected</td>
+              </tr>
+              <tr>
+                <td>Camera / Microphone</td>
+                <td>Audio or video from your device</td>
+                <td style="color:var(--neon-green)">❌ Not collected</td>
+              </tr>
+              <tr>
+                <td>Contacts / Files</td>
+                <td>Phonebook, photos, documents</td>
+                <td style="color:var(--neon-green)">❌ Not collected</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="callout">
+            <span class="callout-icon">✅</span>
+            <p>
+              The Game works fully <strong style="color:#fff">offline</strong>. No account or sign-up
+              is required to play. We do not collect any personally identifiable information directly.
+            </p>
+          </div>
+        </section>
+
+        <!-- 2. How We Use Your Data -->
+        <section class="policy-section" id="s2">
+          <p class="section-num">Section 02</p>
+          <h2>How We Use Your Data</h2>
+          <p>Data we collect is used exclusively for the following purposes:</p>
+          <ul class="policy-list">
+            <li>Detecting and fixing crashes, bugs, and performance issues.</li>
+            <li>Analysing anonymous gameplay patterns to improve level design and difficulty balance.</li>
+            <li>Displaying relevant advertisements to support the free-to-play model (where applicable).</li>
+            <li>Complying with legal obligations and responding to lawful requests.</li>
+            <li>Maintaining game security and preventing cheating or abuse.</li>
+          </ul>
+          <p>We do <strong style="color:#fff">not</strong> use your data for:</p>
+          <ul class="policy-list">
+            <li>Selling data to third parties.</li>
+            <li>Building personal profiles or tracking you across other apps.</li>
+            <li>Marketing communications without explicit consent.</li>
+          </ul>
+        </section>
+
+        <!-- 3. Third-Party Services -->
+        <section class="policy-section" id="s3">
+          <p class="section-num">Section 03</p>
+          <h2>Third-Party Services</h2>
+          <p>
+            Pixel Dash: Endless Runner may integrate the following third-party SDKs. Each service
+            operates under its own privacy policy, which we encourage you to review.
+          </p>
+          <div class="third-party-grid">
+            <div class="third-party-card">
+              <h4>Google Play Services</h4>
+              <p>Authentication, leaderboards, achievements</p>
+              <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Privacy Policy ↗</a>
+            </div>
+            <div class="third-party-card">
+              <h4>Firebase (Google)</h4>
+              <p>Crash reporting (Crashlytics) & analytics</p>
+              <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Privacy Policy ↗</a>
+            </div>
+            <div class="third-party-card">
+              <h4>AdMob (Google)</h4>
+              <p>In-game advertising & rewarded ads</p>
+              <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Privacy Policy ↗</a>
+            </div>
+            <div class="third-party-card">
+              <h4>Unity Ads</h4>
+              <p>Optional rewarded video ads</p>
+              <a href="https://unity.com/legal/game-player-and-app-user-privacy-policy" target="_blank" rel="noopener">Privacy Policy ↗</a>
+            </div>
+          </div>
+          <p style="margin-top:0.5rem">
+            We are not responsible for the data practices of these third-party services.
+            Their SDKs may collect device or usage data independently per their own policies.
+          </p>
+        </section>
+
+        <!-- 4. Advertising -->
+        <section class="policy-section" id="s4">
+          <p class="section-num">Section 04</p>
+          <h2>Advertising</h2>
+          <p>
+            Pixel Dash: Endless Runner is free to play and may display advertisements, including
+            optional rewarded ads that offer in-game benefits (e.g. extra lives, coin bonuses).
+          </p>
+          <ul class="policy-list">
+            <li>
+              <strong style="color:#fff">Personalised ads:</strong> Ad networks may use your
+              Google Advertising ID (GAID) to serve ads relevant to your interests.
+            </li>
+            <li>
+              <strong style="color:#fff">Non-personalised ads:</strong> You can opt out of
+              personalised advertising at any time in your device's Google Settings →
+              Ads → "Opt out of Ads Personalisation."
+            </li>
+            <li>
+              <strong style="color:#fff">No forced ads:</strong> Rewarded ads are always
+              optional. You are never forced to watch an ad to continue playing.
+            </li>
+            <li>
+              <strong style="color:#fff">Children:</strong> If the device is identified as
+              belonging to a child under 13, ad networks are configured to serve
+              non-personalised, COPPA-compliant ads only.
+            </li>
+          </ul>
+          <div class="callout yellow">
+            <span class="callout-icon">⚙️</span>
+            <p>
+              To reset or limit your Advertising ID on Android: <strong style="color:#fff">Settings → Google → Ads</strong>
+              → "Reset advertising ID" or "Delete advertising ID" (Android 12+).
+            </p>
+          </div>
+        </section>
+
+        <!-- 5. Data Sharing -->
+        <section class="policy-section" id="s5">
+          <p class="section-num">Section 05</p>
+          <h2>Data Sharing & Disclosure</h2>
+          <p>We do not sell, trade, or rent your personal information. We may share data only in these limited circumstances:</p>
+          <ul class="policy-list">
+            <li>
+              <strong style="color:#fff">Service Providers:</strong> Trusted third-party SDKs
+              listed in Section 03, solely to operate the Game's features.
+            </li>
+            <li>
+              <strong style="color:#fff">Legal Compliance:</strong> If required by law, court
+              order, or governmental authority.
+            </li>
+            <li>
+              <strong style="color:#fff">Business Transfer:</strong> If LogeByte Games is
+              acquired or merges, data may be transferred as part of that transaction.
+              You will be notified via an in-app update.
+            </li>
+            <li>
+              <strong style="color:#fff">Safety:</strong> To protect the rights, safety, or
+              property of our users or the public, where required by law.
+            </li>
+          </ul>
+        </section>
+
+        <!-- 6. Data Retention -->
+        <section class="policy-section" id="s6">
+          <p class="section-num">Section 06</p>
+          <h2>Data Retention</h2>
+          <p>
+            We retain data only for as long as necessary to fulfil the purposes described in
+            this policy, or as required by law.
+          </p>
+          <table class="data-table">
+            <thead>
+              <tr><th>Data Type</th><th>Retention Period</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Crash / diagnostic logs</td><td>90 days</td></tr>
+              <tr><td>Anonymous gameplay analytics</td><td>12 months (aggregated)</td></tr>
+              <tr><td>Advertising ID</td><td>Controlled by your device / ad provider</td></tr>
+              <tr><td>Leaderboard scores (Google Play)</td><td>Until you delete the game or Google Play account</td></tr>
+            </tbody>
+          </table>
+          <p>
+            Uninstalling the Game removes all locally stored data (save files, settings) from your device.
+            Data held by third-party services should be deleted through those services' account settings.
+          </p>
+        </section>
+
+        <!-- 7. Children's Privacy -->
+        <section class="policy-section" id="s7">
+          <p class="section-num">Section 07</p>
+          <h2>Children's Privacy (COPPA)</h2>
+          <div class="callout yellow">
+            <span class="callout-icon">👦</span>
+            <p>
+              <strong style="color:#fff">Important notice for parents and guardians.</strong>
+              Please read this section carefully.
+            </p>
+          </div>
+          <p>
+            Pixel Dash: Endless Runner is rated <strong style="color:#fff">Everyone (E)</strong> on the
+            Google Play Store and may be played by children. We take children's privacy seriously and
+            comply with the <strong style="color:#fff">Children's Online Privacy Protection Act (COPPA)</strong>
+            and applicable international regulations.
+          </p>
+          <ul class="policy-list">
+            <li>We do <strong style="color:#fff">not</strong> knowingly collect personal information from children under 13.</li>
+            <li>The Game does <strong style="color:#fff">not</strong> include social features, chat, or user-generated content.</li>
+            <li>Ad networks are configured to serve <strong style="color:#fff">non-personalised ads</strong> when a child audience is detected.</li>
+            <li>No in-app purchases require interaction from children without parental consent.</li>
+            <li>
+              If you believe your child has inadvertently provided personal information, please
+              contact us at <a href="mailto:mlogesh2996@gmail.com" style="color:var(--neon-green)">mlogesh2996@gmail.com</a>
+              and we will delete it promptly.
+            </li>
+          </ul>
+        </section>
+
+        <!-- 8. Your Rights -->
+        <section class="policy-section" id="s8">
+          <p class="section-num">Section 08</p>
+          <h2>Your Rights</h2>
+          <p>
+            Depending on your location, you may have the following rights regarding your data.
+            We will respond to verifiable requests within <strong style="color:#fff">30 days</strong>.
+          </p>
+          <table class="data-table">
+            <thead>
+              <tr><th>Right</th><th>Description</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>✅ Access</td><td>Request a copy of data we hold about you.</td></tr>
+              <tr><td>✅ Correction</td><td>Request correction of inaccurate data.</td></tr>
+              <tr><td>✅ Deletion</td><td>Request deletion of your data ("right to be forgotten").</td></tr>
+              <tr><td>✅ Opt-out of ads</td><td>Opt out of personalised advertising via device settings.</td></tr>
+              <tr><td>✅ Data portability</td><td>Request your data in a portable format (where applicable).</td></tr>
+              <tr><td>✅ Complaint</td><td>Lodge a complaint with your local data protection authority.</td></tr>
+            </tbody>
+          </table>
+          <p>
+            To exercise any of these rights, email us at
+            <a href="mailto:mlogesh2996@gmail.com" style="color:var(--neon-green)">mlogesh2996@gmail.com</a>
+            with the subject line "Privacy Request."
+          </p>
+        </section>
+
+        <!-- 9. Data Security -->
+        <section class="policy-section" id="s9">
+          <p class="section-num">Section 09</p>
+          <h2>Data Security</h2>
+          <p>
+            We implement industry-standard technical and organisational measures to protect the
+            limited data we collect:
+          </p>
+          <ul class="policy-list">
+            <li>All data transmitted to third-party services uses <strong style="color:#fff">HTTPS / TLS encryption</strong>.</li>
+            <li>Crash and analytics data is anonymised before processing.</li>
+            <li>Access to any collected data is restricted to authorised personnel only.</li>
+            <li>We regularly review our third-party integrations for compliance with security standards.</li>
+          </ul>
+          <p>
+            No method of electronic transmission or storage is 100% secure. While we strive to
+            protect your information, we cannot guarantee absolute security. If a data breach
+            occurs, we will notify affected parties in accordance with applicable law.
+          </p>
+        </section>
+
+        <!-- 10. Changes to Policy -->
+        <section class="policy-section" id="s10">
+          <p class="section-num">Section 10</p>
+          <h2>Changes to This Privacy Policy</h2>
+          <p>
+            We may update this Privacy Policy from time to time to reflect changes in our
+            practices, legal requirements, or new features. When we do:
+          </p>
+          <ul class="policy-list">
+            <li>The "Last Updated" date at the top of this page will be revised.</li>
+            <li>Significant changes will be communicated via an in-app notification or a banner on this page.</li>
+            <li>Continued use of the Game after changes take effect constitutes your acceptance of the updated policy.</li>
+          </ul>
+          <p>
+            We encourage you to review this page periodically to stay informed about how we
+            protect your information.
+          </p>
+        </section>
+
+        <!-- 11. Contact -->
+        <section class="policy-section" id="s11">
+          <p class="section-num">Section 11</p>
+          <h2>Contact Us</h2>
+          <p>
+            If you have any questions, concerns, or requests regarding this Privacy Policy or
+            the data practices of Pixel Dash: Endless Runner, please reach out:
+          </p>
+          <div class="contact-box">
+            <div class="contact-row">
+              <span>Studio</span>
+              <span style="color:var(--text-primary); font-weight:600">LogeByte Games</span>
+            </div>
+            <div class="contact-row">
+              <span>Email</span>
+              <a href="mailto:mlogesh2996@gmail.com">mlogesh2996@gmail.com</a>
+            </div>
+            <div class="contact-row">
+              <span>Website</span>
+              <a href="https://mlogesh2.github.io/logebyte-games" style="color:var(--neon-blue)">mlogesh2.github.io/logebyte-games</a>
+            </div>
+            <div class="contact-row">
+              <span>Play Store</span>
+              <a href="https://play.google.com/store/apps/developer?id=LogeByte+Games" target="_blank" style="color:var(--neon-blue)">LogeByte Games on Google Play ↗</a>
+            </div>
+          </div>
+          <div class="callout" style="margin-top:1.25rem">
+            <span class="callout-icon">⏱️</span>
+            <p>We aim to respond to all privacy-related queries within <strong style="color:#fff">5 business days</strong>.</p>
+          </div>
+        </section>
+
+      </main>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-inner-pp">
+        <a href="index.html" class="nav-logo" style="font-size:0.75rem">LogeByte Games</a>
+        <ul class="footer-links-pp">
+          <li><a href="index.html#games">Games</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#roadmap">Roadmap</a></li>
+          <li><a href="privacy-policy.html" style="color:var(--neon-green)">Privacy Policy</a></li>
+          <li><a href="mailto:mlogesh2996@gmail.com">Contact</a></li>
+        </ul>
+        <p class="footer-copy">© 2026 LogeByte Games. All rights reserved.</p>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
