@@ -444,29 +444,26 @@
     .timeline {
       display: flex;
       flex-direction: column;
-      gap: 0;
-      max-width: 640px;
+      max-width: 560px;
       margin: 0 auto;
       position: relative;
+      text-align: left;
     }
     .timeline::before {
       content: '';
       position: absolute;
-      left: 50%; top: 0; bottom: 0;
+      left: 6px; top: 0; bottom: 0;
       width: 2px;
       background: linear-gradient(to bottom, var(--neon-blue), var(--neon-green), var(--neon-pink));
-      transform: translateX(-50%);
-      opacity: 0.3;
+      opacity: 0.35;
     }
     .timeline-item {
       display: flex;
-      align-items: center;
-      gap: 2rem;
+      align-items: flex-start;
+      gap: 1.75rem;
       padding: 1.5rem 0;
       position: relative;
     }
-    .timeline-item:nth-child(odd)  { flex-direction: row-reverse; text-align: right; }
-    .timeline-item:nth-child(even) { flex-direction: row; text-align: left; }
     .timeline-dot {
       width: 14px; height: 14px; flex-shrink: 0;
       border-radius: 50%;
@@ -474,6 +471,7 @@
       background: var(--dark-bg);
       position: relative; z-index: 1;
       box-shadow: 0 0 10px var(--neon-blue);
+      margin-top: 3px;
     }
     .timeline-dot.done  { background: var(--neon-green); border-color: var(--neon-green); box-shadow: 0 0 10px var(--neon-green); }
     .timeline-dot.hot   { background: var(--neon-pink);  border-color: var(--neon-pink);  box-shadow: 0 0 10px var(--neon-pink);  animation: pulse-dot 1.5s ease-in-out infinite; }
@@ -546,11 +544,6 @@
       .orbit-ring { width: 200px; height: 200px; }
       nav { padding: 1rem 1.25rem; }
       .nav-links { gap: 1.25rem; }
-      .timeline::before { left: 12px; }
-      .timeline-item, .timeline-item:nth-child(odd) {
-        flex-direction: row !important;
-        text-align: left !important;
-      }
     }
     @media (max-width: 540px) {
       .nav-links { display: none; }
